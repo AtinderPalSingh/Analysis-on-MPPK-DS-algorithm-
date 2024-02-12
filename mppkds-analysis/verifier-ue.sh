@@ -1,27 +1,27 @@
 #rm -r ./org-msgs
 #rm -r ./dig-sigs
 
-VM_IP=146.190.252.237
+VM_IP=159.203.10.136
 File_IDs=$(seq 1000 1000 100000)
 
 mkdir ./msgs
 
 # Downloading Original Messages
 for numLines in $File_IDs; do
-  file="$VM_IP:~/pqc/msgs/${numLines}.txt"
+  file="$VM_IP:~/msgs/${numLines}.txt"
   scp  $file ./msgs/
 done  
   
 
 # Logging
-EXP_ID="2023-03-12-verifier-log-LAN.csv";
+EXP_ID="2024-02-14-verifier-log-LAN.csv";
 echo "" > $EXP_ID
 echo "File Name, Transporting time (ms), Verifiying time (ms)" > $EXP_ID
 
 mkdir ./dig-sigs
 
 for numLines in $File_IDs; do
-  file="$VM_IP:~/pqc/msgs/${numLines}_dig_sig.json"
+  file="$VM_IP:~/msgs/${numLines}_dig_sig.json"
   echo "${file##*/}," | tr -d "\n" >> $EXP_ID
   
   # Downloading digital signatures from cloud VM

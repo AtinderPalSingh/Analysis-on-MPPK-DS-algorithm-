@@ -1,9 +1,12 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Created on Sat Mar 11 16:26:58 2023
+Created on: Sat Mar 11 16:26:58 2023
 
 @author: atinder
+@editor: Mohammed Abuibaid
+
+Updated on: Mon Feb 12 14:15:20 2024
 """
 
 #!/usr/bin/env python3
@@ -32,16 +35,18 @@ import time
 import cProfile
 import json
 
-with open('./original_text_2091words12.txt', 'rb') as f:
-    data = f.read()
-    hash_object1 = hashlib.sha256(data)
-    print("hash_value:", hash_object1.hexdigest())
-    mu = int(hash_object1.hexdigest(), 16)
+#with open('./original_text_2091words12.txt', 'rb') as f:
+#    data = f.read()
+#    hash_object1 = hashlib.sha256(data)
+#    print("hash_value:", hash_object1.hexdigest())
+#    mu = int(hash_object1.hexdigest(), 16)
 #use ASCII convertor and put in report as a note 
-    print ("Int_value_msg1:", mu)
+#    print ("Int_value_msg1:", mu)
+
 
 # Start the timer
 start_time = time.time()
+
 def keygen(m, n, lambda_, ell, p):
     tp = p - 1
 
@@ -97,8 +102,13 @@ def keygen(m, n, lambda_, ell, p):
     return s, v
 
 #f.write(','.join(str(s) if isinstance(s, int) else ','.join(str(i) for i in key) for key in keys))
+
+
+
 # End the timer
 end_time = time.time()
+
+
 
 # Calculate the signing latency in milliseconds
 latency = (end_time - start_time) * 1000
@@ -131,20 +141,3 @@ def main():
     
 if __name__ == '__main__':
     main()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
