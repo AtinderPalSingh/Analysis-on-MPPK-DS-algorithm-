@@ -6,9 +6,11 @@ apt install -y python3-numpy
 python3 keygen.py
 
 
-#Step 2: Upload the following files to the Singer side, 
-export VM_IP=159.203.10.136
-scp private_key.json sign.py signer-vm.sh $VM_IP:~/
+# If you genkey outside cloud, then you need this Step 2: Upload the following files to the Singer side, 
+# export VM_IP=159.203.10.136
+# scp private_key.json sign.py signer-vm.sh $VM_IP:~/
+
+
 
 #Step 3: Run the signer-vm.sh
 bash signer-vm.sh
